@@ -25,13 +25,15 @@ export default {
   name: 'HeaderComp',
   data(){
       return{
-          dischi: []
+          dischi: [],
+          loadingStatus: true
       }
   },
   created(){
       axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then( (res) => {
             this.dischi = res.data.response
+            this.loadingStatus = false
         }) 
   }
 }

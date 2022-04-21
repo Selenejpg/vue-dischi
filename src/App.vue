@@ -1,7 +1,13 @@
 <template>
   <div>
-    <HeaderComp/>
-    <GrigliaDischi/>
+    <div v-if="!loadingStatus">
+      <HeaderComp/>
+      <GrigliaDischi/>
+    </div>
+    <div v-else>
+      <LoaderComp/> 
+    </div>
+    
   </div>
 </template>
 
@@ -9,12 +15,14 @@
 import "bootstrap"
 import HeaderComp from './components/HeaderComp.vue'
 import GrigliaDischi from './components/GrigliaDischi.vue'
+import LoaderComp from './components/LoaderComp.vue'
 
 export default {
   name: 'App',
   components: {
     HeaderComp,
-    GrigliaDischi
+    GrigliaDischi,
+    LoaderComp
   }
 }
 </script>
