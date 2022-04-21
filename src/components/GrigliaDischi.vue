@@ -32,6 +32,7 @@ export default {
       axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then( (res) => {
             this.dischi = res.data.response
+            console.log(res.data.response)
         }) 
   }
 }
