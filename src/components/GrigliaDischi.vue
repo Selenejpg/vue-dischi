@@ -22,7 +22,7 @@ import axios from 'axios'
 
 export default {
   //Cambiare il nome con quello del componente creato
-  name: 'HeaderComp',
+  name: 'GrigliaDischi',
   data(){
       return{
           dischi: [],

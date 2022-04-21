@@ -1,7 +1,10 @@
 <template>
   <div>
     <div v-if="!loadingStatus">
-      <HeaderComp/>
+      <div  class="d-flex justify-content-between align-items-center">
+        <HeaderComp @funzioneRicerca="metodoSearch"/>
+      </div>
+      
       <GrigliaDischi/>
     </div>
     <div v-else>
@@ -16,6 +19,7 @@ import "bootstrap"
 import HeaderComp from './components/HeaderComp.vue'
 import GrigliaDischi from './components/GrigliaDischi.vue'
 import LoaderComp from './components/LoaderComp.vue'
+
 import axios from 'axios'
 
 export default {
@@ -23,7 +27,8 @@ export default {
   components: {
     HeaderComp,
     GrigliaDischi,
-    LoaderComp
+    LoaderComp,
+
   },data(){
       return{
           loadingStatus: true
@@ -35,6 +40,10 @@ export default {
             this.dischi = res.data.response
             this.loadingStatus = false
         }) 
+  }, methods: {
+      funzioneRicerca(text) {
+          this.testoRicerca = text
+      }
   }
 }
 </script>
