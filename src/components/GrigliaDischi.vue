@@ -3,7 +3,7 @@
       <div class="container padding">
         <div class="row row-cols-5 text-white my-4 text-center">
             <div class="mt-5" v-for="(element, index) in dischi" :key="index">
-                <div class="bg-card p-3">
+                <div class="bg-card height p-3">
                     <img  class="img-fluid mt-5" :src="element.poster" alt="">
                     <h3 class="mt-4 fs-6">{{element.title}}</h3>
                     <h4 class="font gray">{{element.author}}</h4>
@@ -52,7 +52,9 @@ export default {
  .bg-card {
      background-color: $header-bg;
  }
-
+.height{
+    height: 100%;
+}
  .gray{
     color: gray;
  }
