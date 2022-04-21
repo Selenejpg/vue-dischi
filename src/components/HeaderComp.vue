@@ -3,7 +3,7 @@
     <!--inserire contenuto componente-->
    
     <img src="../assets/img/spotify-logo.png" alt="">
-    <select v-model.trim="selectText" class="form-select width" aria-label="Default select example">
+    <select v-model="selectText" class="form-select width" aria-label="Default select example">
       <option @click.prevent="$emit( 'funzioneRicerca, selectText' )" value="1">Pop</option>
       <option value="2">Rock</option>
       <option value="3">Metal</option>
