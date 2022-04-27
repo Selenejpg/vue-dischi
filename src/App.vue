@@ -2,22 +2,14 @@
   <div>
     <div v-if="!loadingStatus">
       <div  class="d-flex justify-content-between align-items-center">
-        <HeaderComp @funzioneRicerca="metodoSearch"/>
+        <HeaderComp/>
       </div>
       
-      <GrigliaDischi
-       v-for="( element, index ) in filtraggio()"
-      :key="index"
-      :image="element.image"
-      :name="element.name"
-      :species="element.species"
-      :origin="element.origin"
-      />
+      <GrigliaDischi/>
     </div>
     <div v-else>
       <LoaderComp/> 
     </div>
-    <LunghezzaApi :lunghezza="filtraggio().length"/>
   </div>
 </template>
 
@@ -39,7 +31,6 @@ export default {
   },data(){
       return{
           loadingStatus: true,
-          testoRicerca: ''
       }
   },
   created(){
@@ -48,22 +39,7 @@ export default {
             this.dischi = res.data.response
             this.loadingStatus = false
         }) 
-  },
-  methods: {
-    metodoSearch( testo ){
-      console.log(testo)
-      this.testoRicerca = testo
-      console.log(this.testoRicerca)
-    },
-    filtraggio(){
-      if( this.testoRicerca === '' ){
-        return this.avatarsArray
-      } else{
-        return this.avatarsArray.filter( (elem) => {
-          return elem.name.toLowerCase().includes(this.testoRicerca.toLowerCase())
-        } )
-      }}
-   }
+  }
 }
 </script>
 
